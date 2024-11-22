@@ -20,3 +20,10 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+from django.urls import path
+from .views import TicketListAPIView, TicketDetailAPIView
+
+urlpatterns = [
+    path('api/tickets/', TicketListAPIView.as_view(), name='ticket_list_api'),
+    path('api/tickets/<int:pk>/', TicketDetailAPIView.as_view(), name='ticket_detail_api'),
+]
